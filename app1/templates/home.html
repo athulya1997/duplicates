@@ -1,0 +1,31 @@
+{% extends 'navbar.html' %}
+{% block content %}
+<div class="container">
+<div class="row mt-5">
+    <div class="col-sm-5 mt-5 ">
+        <form method="post">
+            {% csrf_token %}
+            <label>Enter the text:</label>
+            <div class="form-group">
+                <input class="form-control" type="text" name="text1" placeholder="Enter your text">
+            </div>
+            <input  class="btn btn-primary" type="submit" value="Submit" id="sub">        
+        </form>
+
+        </div>
+        <div class="col-sm-5 mt-5 offset-2 ">
+            <h6>Word: </h6> <p class="text-primary">{{str}}</p>
+            <h6>Repeated Elements: </h6> 
+            {% for i in abc %}
+                <span class="text-primary">{{i.letter}}     </span>
+            {% endfor %}
+                <h6>No of elements repeated: </h6>
+            {% for i in abc%}
+                <p class="text-primary">{{i.letter}} - {{i.count}} times</p>
+            {% endfor %}
+            <h6>Most Repeated Element: </h6><p class="text-primary">{{cd.letter}}</p>
+    {{msg}}
+        </div>
+    </div>
+</div>
+{% endblock %}
